@@ -1,6 +1,9 @@
 #!/usr/bin/env ruby
 require 'logger'
 
+puts "Skipping Sublime3 setup"
+exit
+
 LOGGER = Logger.new(STDOUT)
 
 def execute(cmd, fail_silently = false)
