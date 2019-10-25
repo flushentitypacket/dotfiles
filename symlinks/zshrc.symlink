@@ -1,3 +1,0 @@
-# symlink ~/.zshdir is set up in zsh installer
-export ZSH_DIR="$HOME/.zshdir"
-source "$ZSH_DIR/zshrc.zsh"
