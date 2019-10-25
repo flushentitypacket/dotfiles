@@ -9,6 +9,8 @@ cp zshrc ~/.zshrc
 
 ```sh
 brew install zsh-autosuggestions
+brew install zsh-syntax-highlighting
+brew install zsh-history-substring-search
 ```
 
 ## Prompt
