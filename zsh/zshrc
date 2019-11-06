@@ -14,6 +14,13 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
+# Set up url quote magic
+# TODO: Currently makes pasting unbearably slow, so disabling for now.
+# autoload -Uz url-quote-magic
+# zle -N self-insert url-quote-magic
+# autoload -Uz bracketed-paste-magic
+# zle -N bracketed-paste bracketed-paste-magic
+
 # Set Spaceship ZSH as a prompt
 autoload -U promptinit; promptinit
 prompt spaceship
@@ -36,7 +43,6 @@ source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
-# FIXME: This doesn't seem to be working...
 # https://github.com/zsh-users/zsh-history-substring-search
 # $ brew install zsh-history-substring-search
 source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
