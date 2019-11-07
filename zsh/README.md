@@ -2,7 +2,16 @@
 
 ```sh
 brew install zsh
-cp zshrc ~/.zshrc
+
+shell_path="$(which zsh)"
+if ! grep "$shell_path" /etc/shells > /dev/null 2>&1 ; then
+sudo sh -c "echo $shell_path >> /etc/shells"
+fi
+chsh -s "$shell_path"
+
+ln -s `pwd`/zshrc ~/.zshrc
+ln -s `pwd`/ddrc ~/.ddrc
+cp ./secretsrc ~/.secretsrc
 ```
 
 ## Plugins

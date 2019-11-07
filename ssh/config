@@ -1,0 +1,9 @@
+Host *
+  ServerAliveInterval 30
+  VisualHostKey yes
+  UseKeychain yes
+  AddKeysToAgent yes
+
+Host github.com-flushentitypacket
+  HostName github.com
+  IdentityFile ~/.ssh/github
