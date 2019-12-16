@@ -32,3 +32,6 @@ export AWS_VAULT_KEYCHAIN_NAME=login
 export AWS_SESSION_TTL=24h
 export AWS_ASSUME_ROLE_TTL=1h
 # END ANSIBLE MANAGED BLOCK
+
+# web-ui setup
+eval "$(nodenv init -)"

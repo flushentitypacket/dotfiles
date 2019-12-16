@@ -25,8 +25,14 @@ compinit
 autoload -U promptinit; promptinit
 prompt spaceship
 
+# personal bin things
+export PATH="${HOME?}/bin:${PATH}"
 # set secret environment variables
 source ~/.secretsrc
+# set Datadog environment
+source ~/.ddrc
+
+export EDITOR=vim # set vim as default editor
 
 # *************
 # P L U G I N S
@@ -46,3 +52,6 @@ bindkey '^[[B' history-substring-search-down
 # https://github.com/zsh-users/zsh-history-substring-search
 # $ brew install zsh-history-substring-search
 source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
