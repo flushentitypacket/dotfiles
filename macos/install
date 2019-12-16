@@ -24,4 +24,7 @@ defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
 defaults write .GlobalPreferences com.apple.mouse.scaling -1
 defaults write .GlobalPreferences com.apple.scrollwheel.scaling -1
 
+# Set screenshot dir to ~/Downloads
+defaults write com.apple.screencapture location ~/Downloads
+
 echo '*Done!'
