@@ -25,3 +25,12 @@ brew install zsh-history-substring-search
 ## Prompt
 
 https://github.com/denysdovhan/spaceship-prompt
+
+## Cheat
+
+mkdir ~/bin
+mkdir -p ~/.config/cheat && cheat --init > ~/.config/cheat/conf.yml
+mkdir ~/.config/cheat/personal
+cd ~/.config/cheat && git clone git@github.com:cheat/cheatsheets.git community
+
+https://github.com/cheat/cheat
