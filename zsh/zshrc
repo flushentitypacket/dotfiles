@@ -14,6 +14,10 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
+# Bash style word selection
+autoload -U select-word-style
+select-word-style bash
+
 # Set up url quote magic
 # TODO: Currently makes pasting unbearably slow, so disabling for now.
 # autoload -Uz url-quote-magic
