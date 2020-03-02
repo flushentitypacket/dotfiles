@@ -1,0 +1,4 @@
+# Usage:
+# git-changed-files master # shows changed files between current branch and master branch
+
+git diff --name-only $1
