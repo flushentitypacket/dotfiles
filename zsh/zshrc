@@ -35,6 +35,8 @@ export PATH="${HOME?}/bin:${PATH}"
 source ~/.secretsrc
 # set Datadog environment
 source ~/.ddrc
+# set switching iterm profiles when sshing
+source ~/.colorssh.zsh
 
 export EDITOR=vim # set vim as default editor
 
