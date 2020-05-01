@@ -30,6 +30,19 @@ autoload -z edit-command-line
 zle -N edit-command-line
 bindkey "^X^E" edit-command-line
 
+# Set ESC key to enter vi mode
+bindkey "\e" vi-cmd-mode
+# Maybe this is better...
+# bindkey -v
+# bindkey '^a' beginning-of-line
+# bindkey '^b' backward-char
+# bindkey '^e' end-of-line
+# bindkey '^f' forward-char
+# bindkey '^h' backward-delete-char
+# bindkey '^k' kill-line
+# bindkey '^u' kill-whole-line
+# bindkey '^w' backward-kill-word
+
 # Set Spaceship ZSH as a prompt
 autoload -U promptinit; promptinit
 prompt spaceship
