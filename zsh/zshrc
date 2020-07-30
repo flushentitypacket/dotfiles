@@ -32,20 +32,13 @@ bindkey "^X^E" edit-command-line
 
 # Set ESC key to enter vi mode
 bindkey "\e" vi-cmd-mode
-# Maybe this is better...
-# bindkey -v
-# bindkey '^a' beginning-of-line
-# bindkey '^b' backward-char
-# bindkey '^e' end-of-line
-# bindkey '^f' forward-char
-# bindkey '^h' backward-delete-char
-# bindkey '^k' kill-line
-# bindkey '^u' kill-whole-line
-# bindkey '^w' backward-kill-word
 
 # Set Spaceship ZSH as a prompt
 autoload -U promptinit; promptinit
 prompt spaceship
+
+# iterm shell integration
+export ITERM_ENABLE_SHELL_INTEGRATION_WITH_TMUX=YES
 
 # personal bin things
 export PATH="${HOME?}/bin:${PATH}"
@@ -78,20 +71,3 @@ bindkey '^[[B' history-substring-search-down
 source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
-# git clone https://github.com/larkery/zsh-histdb $HOME/.zsh/plugins/zsh-histdb
-source $HOME/.zsh/plugins/zsh-histdb/sqlite-history.zsh
-autoload -Uz add-zsh-hook
-add-zsh-hook precmd histdb-update-outcome
-_zsh_autosuggest_strategy_histdb_top() {
-    local query="select commands.argv from
-history left join commands on history.command_id = commands.rowid
-left join places on history.place_id = places.rowid
-where commands.argv LIKE '$(sql_escape $1)%'
-group by commands.argv
-order by places.dir != '$(sql_escape $PWD)', count(*) desc limit 1"
-    suggestion=$(_histdb_query "$query")
-}
-ZSH_AUTOSUGGEST_STRATEGY=histdb_top
-source $HOME/.zsh/plugins/zsh-histdb/histdb-interactive.zsh
-bindkey '^r' _histdb-isearch
