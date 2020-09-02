@@ -384,13 +384,13 @@
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>970 768 620 392 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>87 261 1680 1004 0 0 2560 1417 </string>
+	<string>207 554 825 602 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>221 103 1280 924 0 0 1680 1027 </string>
+	<string>0 217 1795 1200 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
-	<string>0 421 810 602 0 0 1680 1027 </string>
+	<string>113 110 1115 901 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
-	<string>0 0 1680 1027 0 0 1680 1027 </string>
+	<string>207 163 1245 993 0 0 2560 1417 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -4351,7 +4351,7 @@
 	<key>NoSyncLastTipTime</key>
 	<real>607014066.28045702</real>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>22</integer>
+	<integer>24</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -5192,6 +5192,8 @@
 		<string>0051</string>
 		<string>0078</string>
 	</array>
+	<key>OpenTmuxWindowsIn</key>
+	<integer>2</integer>
 	<key>PointerActions</key>
 	<dict>
 		<key>Button,1,1,,</key>
@@ -5236,7 +5238,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2020-04-28T14:14:34Z</date>
+	<date>2020-05-25T22:10:00Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SUUpdateGroupIdentifier</key>
@@ -5246,6 +5248,8 @@
 	<key>ShowFullScreenTabBar</key>
 	<false/>
 	<key>SoundForEsc</key>
+	<false/>
+	<key>TmuxUsesDedicatedProfile</key>
 	<false/>
 	<key>VisualIndicatorForEsc</key>
 	<false/>
