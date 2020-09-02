@@ -46,8 +46,7 @@ export PATH="${HOME?}/bin:${PATH}"
 source ~/.secretsrc
 # set Datadog environment
 source ~/.ddrc
-# set switching iterm profiles when sshing
-source ~/.colorssh.zsh
+source ~/.iterm.zsh
 # set pythonrc
 export PYTHONSTARTUP=~/.pythonrc
 
@@ -71,5 +70,3 @@ bindkey '^[[B' history-substring-search-down
 # https://github.com/zsh-users/zsh-history-substring-search
 # $ brew install zsh-history-substring-search
 source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
-
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"

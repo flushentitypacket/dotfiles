@@ -11,7 +11,7 @@ chsh -s "$shell_path"
 
 ln -s `pwd`/zshrc ~/.zshrc
 ln -s `pwd`/ddrc ~/.ddrc
-ln -s `pwd`/colorssh.zsh ~/.colorssh.zsh
+ln -s `pwd`/iterm.zsh ~/.iterm.zsh
 ln -s `pwd`/pythonrc ~/.pythonrc
 cp ./secretsrc ~/.secretsrc
 ```

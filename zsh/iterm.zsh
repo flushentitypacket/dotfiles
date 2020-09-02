@@ -1,5 +1,11 @@
 #!/bin/env zsh
 
+# iterm-specific zsh settings
+
+# ###########################
+# SET COLORS BASED ON SSH ENV
+# ###########################
+
 DEFAULT_PROFILE_NAME="Default"
 STAGING_PROFILE_NAME="staging"
 PROD_PROFILE_NAME="prod"
@@ -29,3 +35,13 @@ function colorssh() {
 compdef _ssh tabc=ssh
 
 alias ssh="colorssh"
+
+# ############################
+# SET TAB TITLE TO CURRENT DIR
+# ############################
+
+tab_title() {
+  # sets the tab title to current dir
+  echo -ne "\e]1;${PWD##*/}\a"
+}
+add-zsh-hook precmd tab_title
