@@ -30,9 +30,11 @@ https://github.com/denysdovhan/spaceship-prompt
 
 ## Cheat
 
+```sh
 mkdir ~/bin
 mkdir -p ~/.config/cheat && cheat --init > ~/.config/cheat/conf.yml
 mkdir ~/.config/cheat/personal
 cd ~/.config/cheat && git clone git@github.com:cheat/cheatsheets.git community
+```
 
 https://github.com/cheat/cheat
