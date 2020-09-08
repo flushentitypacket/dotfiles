@@ -22,8 +22,6 @@ cp ./secretsrc ~/.secretsrc
 brew install zsh-autosuggestions
 brew install zsh-syntax-highlighting
 brew install zsh-history-substring-search
-brew install sqlite3
-git clone https://github.com/larkery/zsh-histdb $HOME/.zsh/plugins/zsh-histdb
 ```
 
 ## Prompt
