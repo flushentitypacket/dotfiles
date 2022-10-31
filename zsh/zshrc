@@ -42,8 +42,6 @@ source "$HOME/.zsh/spaceship/spaceship.zsh"
 # iterm shell integration
 export ITERM_ENABLE_SHELL_INTEGRATION_WITH_TMUX=YES
 
-# personal bin things
-export PATH="${HOME?}/bin:${PATH}"
 # set secret environment variables
 source ~/.secretsrc
 # set Datadog environment
@@ -53,6 +51,9 @@ source ~/.iterm.zsh
 export PYTHONSTARTUP=~/.pythonrc
 
 export EDITOR=vim # set vim as default editor
+
+# personal bin things
+export PATH="${HOME?}/bin:${PATH}"
 
 # *************
 # P L U G I N S
