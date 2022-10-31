@@ -35,8 +35,9 @@ bindkey "^X^E" edit-command-line
 bindkey "\e" vi-cmd-mode
 
 # Set Spaceship ZSH as a prompt
-autoload -U promptinit; promptinit
-prompt spaceship
+# autoload -U promptinit; promptinit
+# prompt spaceship
+source "$HOME/.zsh/spaceship/spaceship.zsh"
 
 # iterm shell integration
 export ITERM_ENABLE_SHELL_INTEGRATION_WITH_TMUX=YES
@@ -59,15 +60,15 @@ export EDITOR=vim # set vim as default editor
 
 # https://github.com/zsh-users/zsh-autosuggestions
 # $ brew install zsh-autosuggestions
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # NOTE: Must be loaded before zsh-history-substring-search
 # https://github.com/zsh-users/zsh-syntax-highlighting
 # $ brew install zsh-syntax-highlighting
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
 # https://github.com/zsh-users/zsh-history-substring-search
 # $ brew install zsh-history-substring-search
-source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+source /opt/homebrew/share/zsh-history-substring-search/zsh-history-substring-search.zsh
