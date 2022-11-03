@@ -49,3 +49,6 @@
 [branch]
 	sort = -committerdate
 
+[user]
+	name = Ron Hong
+	email = ronniejhong@gmail.com
