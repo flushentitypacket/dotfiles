@@ -57,3 +57,6 @@ export HELM_DRIVER=configmap
 export GO111MODULE=auto
 export GOPRIVATE=github.com/DataDog
 # END ANSIBLE MANAGED BLOCK
+
+# add kubectl krew to path
+export PATH="$PATH:${KREW_ROOT:-$HOME/.krew}/bin"
