@@ -28,6 +28,10 @@ brew install zsh-history-substring-search
 
 https://github.com/denysdovhan/spaceship-prompt
 
+```sh
+ln -s `pwd`/spaceshiprc.zsh ~/.spaceshiprc.zsh
+```
+
 ## Cheat
 
 ```sh
