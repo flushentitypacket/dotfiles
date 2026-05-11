@@ -27,4 +27,7 @@ defaults write .GlobalPreferences com.apple.scrollwheel.scaling -1
 # Set screenshot dir to ~/Downloads
 defaults write com.apple.screencapture location ~/Downloads
 
+# Turn off app bouncing in Dock
+defaults write com.apple.dock no-bouncing -bool TRUE
+
 echo '*Done!'

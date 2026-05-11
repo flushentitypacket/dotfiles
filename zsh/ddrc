@@ -65,7 +65,68 @@ export PATH="$PATH:${KREW_ROOT:-$HOME/.krew}/bin"
 export GITLAB_TOKEN=$(security find-generic-password -a ${USER} -s gitlab_token -w)
 
 # c env
-export PKG_CONFIG_PATH="$(brew --prefix)/opt/openssl/lib/pkgconfig:$PKG_CONFIG_PATH"
-export PKG_CONFIG_PATH="$(brew --prefix)/lib/pkgconfig:$PKG_CONFIG_PATH"
-export CPATH="$(brew --prefix)/include:$CPATH"
-export LIBRARY_PATH="$(brew --prefix)/lib:$LIBRARY_PATH"
+# export PKG_CONFIG_PATH="$(brew --prefix)/opt/openssl/lib/pkgconfig:$PKG_CONFIG_PATH"
+# export PKG_CONFIG_PATH="$(brew --prefix)/lib/pkgconfig:$PKG_CONFIG_PATH"
+# export CPATH="$(brew --prefix)/include:$CPATH"
+# export LIBRARY_PATH="$(brew --prefix)/lib:$LIBRARY_PATH"
+# export CC=$(xcrun --find clang)
+# export CXX=$(xcrun --find clang++)
+# export SDKROOT="$(xcrun --sdk macosx --show-sdk-path)"
+
+# fix m1 terraform install via tfenv
+# https://stackoverflow.com/questions/71606880/setting-up-terraform-v0-14-0-on-apple-m1
+export TFENV_ARCH="amd64"
+
+# attempt to fix install of python math packages like numpy
+export OPENBLAS="$(brew --prefix openblas)"
+
+# workspaces
+export WORKSPACE="$(echo $USER | sed s/\\.//g)2"
+
+bzl-dev () {
+	AUTH_ROLE=sdm-staging TEMPORAL_CERT_URL=https://vault.us1.ddbuild.io/v1/pki/regional/ca_chain TEMPORAL_ENDPOINT=temporal.atlas-dev.svc.sdm1.us1.ddbuild.io:8080 CNAB_WORKFLOW_DRIVER=temporal USE_TEMPORAL=true bzl run "$@"
+}
+
+# github signing
+# Set SSH_AUTH_SOCK to the launchd-managed ssh-agent socket (com.openssh.ssh-agent).
+export SSH_AUTH_SOCK=$(launchctl asuser $(id -u) launchctl getenv SSH_AUTH_SOCK)
+
+# Load SSH keys from the keychain if keychain is empty.
+ssh-add -l > /dev/null || ssh-add --apple-load-keychain 2> /dev/null
+
+# Load eclair docker-compose for devc
+export DEVC_ADDITIONAL_COMPOSE_YML=$HOME/go/src/github.com/DataDog/eclair-scripts/eclair/docker/docker-compose.devc.yml
+
+# Goland
+export PATH="$PATH:/Applications/GoLand.app/Contents/MacOS"
+
+# zsh autocomplete for ddr
+# source ~/dd/dd-source/domains/eee/apps/ddr-urfave/autocomplete/zsh_autocomplete
+
+# gazelle alias
+alias gz="bzl run //:gazelle"
+
+# tilt build mode
+# export TILT_BUILD=incremental
+
+# dd go setup
+go env -w GOPROXY="binaries.ddbuild.io,proxy.golang.org,direct"
+go env -w GONOSUMDB="github.com/DataDog,go.ddbuild.io"
+
+# direnv for RAPID alias support
+eval "$(direnv hook zsh)"
+
+
+# fix for java install tool:
+# https://github.com/sdkman/sdkman-cli/issues/977#issuecomment-2127812178
+export SDKMAN_DIR="$HOME/.sdkman"
+sdk() {
+  unset -f sdk
+  [[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ]] && source "$SDKMAN_DIR/bin/sdkman-init.sh"
+  sdk "$@"
+}
+
+# frontend yarn stuff
+source "/Users/ron.hong/.yarn/switch/env"
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
