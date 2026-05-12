@@ -24,10 +24,17 @@ defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
 defaults write .GlobalPreferences com.apple.mouse.scaling -1
 defaults write .GlobalPreferences com.apple.scrollwheel.scaling -1
 
+# Traditional scroll direction for trackpad
+defaults write -g com.apple.swipescrolldirection -bool false
+
 # Set screenshot dir to ~/Downloads
 defaults write com.apple.screencapture location ~/Downloads
 
 # Turn off app bouncing in Dock
 defaults write com.apple.dock no-bouncing -bool TRUE
+# Autohide Dock
+defaults write com.apple.dock autohide -bool true
+# Don't show recent apps in Dock
+defaults write com.apple.dock "show-recents" -bool "false"
 
 echo '*Done!'
