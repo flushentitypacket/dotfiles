@@ -1,11 +1,6 @@
-
-# google-cloud-sdk brew caveat
-source "/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
-source "/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
-
 # BEGIN ANSIBLE MANAGED BLOCK
-# Add homebrew binaries to the path.
-export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:${PATH?}"
+# Load homebrew shell variables
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Force certain more-secure behaviours from homebrew
 export HOMEBREW_NO_INSECURE_REDIRECT=1
@@ -19,23 +14,29 @@ eval "$(pyenv init -)"
 # Load ruby shims
 eval "$(rbenv init -)"
 
+# Load direnv hook
+eval "$(direnv hook zsh)"
+
+# Load git-dd completions for zsh
+autoload -Uz _git_dd
+
 # Prefer GNU binaries to Macintosh binaries.
-export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:${PATH}"
+export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
 
 # Add AWS CLI to PATH
 export PATH="/opt/homebrew/opt/awscli@1/bin:$PATH"
 
 # Add datadog devtools binaries to the PATH
-export PATH="${HOME?}/dd/devtools/bin:${PATH?}"
+export PATH="$HOME/dd/devtools/bin:$PATH"
 
 # Point GOPATH to our go sources
-export GOPATH="${HOME?}/go"
+export GOPATH="$HOME/go"
 
 # Add binaries that are go install-ed to PATH
-export PATH="${GOPATH?}/bin:${PATH?}"
+export PATH="$GOPATH/bin:$PATH"
 
 # Point DATADOG_ROOT to ~/dd symlink
-export DATADOG_ROOT="${HOME?}/dd"
+export DATADOG_ROOT="$HOME/dd"
 
 # Tell the devenv vm to mount $GOPATH/src rather than just dd-go
 export MOUNT_ALL_GO_SRC=1
@@ -55,14 +56,14 @@ export HELM_DRIVER=configmap
 # remove it in Go 1.18, which breaks projects using the dep tool.
 # https://blog.golang.org/go116-module-changes
 export GO111MODULE=auto
-export GOPRIVATE=github.com/DataDog
+# Configure Go to pull go.ddbuild.io packages.
+export GONOSUMDB=github.com/DataDog,go.ddbuild.io
+export GOPRIVATE=
+export GOPROXY="https://depot-read-api-go.us1.ddbuild.io/magicmirror/magicmirror/@current/|https://depot-read-api-go.us1.ddbuild.io/magicmirror/magicmirror/@current/|https://depot-read-api-go.us1.ddbuild.io/magicmirror/testing/@current/"
 # END ANSIBLE MANAGED BLOCK
 
 # add kubectl krew to path
 export PATH="$PATH:${KREW_ROOT:-$HOME/.krew}/bin"
-
-# add gitlab token to env
-export GITLAB_TOKEN=$(security find-generic-password -a ${USER} -s gitlab_token -w)
 
 # c env
 # export PKG_CONFIG_PATH="$(brew --prefix)/opt/openssl/lib/pkgconfig:$PKG_CONFIG_PATH"
@@ -109,14 +110,6 @@ alias gz="bzl run //:gazelle"
 # tilt build mode
 # export TILT_BUILD=incremental
 
-# dd go setup
-go env -w GOPROXY="binaries.ddbuild.io,proxy.golang.org,direct"
-go env -w GONOSUMDB="github.com/DataDog,go.ddbuild.io"
-
-# direnv for RAPID alias support
-eval "$(direnv hook zsh)"
-
-
 # fix for java install tool:
 # https://github.com/sdkman/sdkman-cli/issues/977#issuecomment-2127812178
 export SDKMAN_DIR="$HOME/.sdkman"
@@ -127,6 +120,6 @@ sdk() {
 }
 
 # frontend yarn stuff
-source "/Users/ron.hong/.yarn/switch/env"
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
+# source "/Users/ron.hong/.yarn/switch/env"
+# export VOLTA_HOME="$HOME/.volta"
+# export PATH="$VOLTA_HOME/bin:$PATH"
