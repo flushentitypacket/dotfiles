@@ -10,7 +10,6 @@ fi
 chsh -s "$shell_path"
 
 ln -s `pwd`/zshrc ~/.zshrc
-ln -s `pwd`/ddrc ~/.ddrc
 ln -s `pwd`/iterm.zsh ~/.iterm.zsh
 ln -s `pwd`/pythonrc ~/.pythonrc
 cp ./secretsrc ~/.secretsrc
@@ -26,10 +25,8 @@ brew install zsh-history-substring-search
 
 ## Prompt
 
-https://github.com/denysdovhan/spaceship-prompt
-
 ```sh
-ln -s `pwd`/spaceshiprc.zsh ~/.spaceshiprc.zsh
+brew install powerlevel10k
 ```
 
 ## Cheat

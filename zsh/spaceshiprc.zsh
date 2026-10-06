@@ -1,3 +1,5 @@
+# no longer in use
+
 SPACESHIP_TIME_SHOW=true
 
 SPACESHIP_KUBECTL_SHOW=true

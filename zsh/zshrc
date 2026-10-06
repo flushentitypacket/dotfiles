@@ -50,12 +50,9 @@ bindkey "\e" vi-cmd-mode
 # iterm shell integration
 export ITERM_ENABLE_SHELL_INTEGRATION_WITH_TMUX=YES
 
-# set secret environment variables
 source ~/.secretsrc
-# set Datadog environment
-source ~/.ddrc
 source ~/.iterm.zsh
-# set pythonrc
+
 export PYTHONSTARTUP=~/.pythonrc
 
 export EDITOR=vim # set vim as default editor
